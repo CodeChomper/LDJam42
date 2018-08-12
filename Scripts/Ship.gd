@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 var rot = 0
 var velocity = Vector2()
-var ROT_SPEED = 3
+var ROT_SPEED = 4
+var THRUDT_POWER = 6
 
 
 func _ready():
@@ -22,6 +23,10 @@ func _physics_process(delta):
 		var tmp = Vector2();
 		tmp.x = cos(self.rotation)
 		tmp.y = sin(self.rotation)
-		velocity += tmp * 5
+		velocity += tmp * THRUDT_POWER
 	
-	velocity = move_and_slide(velocity, Vector2(0, -1))
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.normal) * 0.75
+		
+	#velocity = move_and_slide(velocity, Vector2(0, -1))

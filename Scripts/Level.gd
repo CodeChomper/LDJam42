@@ -1,6 +1,6 @@
 extends Node2D
 
-const GRAVITY = Vector2(0,1)
+const GRAVITY = Vector2(0,1.5)
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/BlockSpawner.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node2D" index="0"]
 
@@ -33,5 +34,9 @@ margin_left = 958.0
 margin_top = -36.0
 margin_right = 1022.0
 margin_bottom = 842.0
+
+[node name="BlockSpawner" parent="." index="2" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Transform" ]
 
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://imgs/Ship.png" type="Texture" id=2]
 
-[node name="Ship" type="KinematicBody2D"]
+[node name="Ship" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -14,11 +14,12 @@ script = ExtResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 31.4547, 0.535614, -31.0938, 31.6909, -15.3972, 0.297783, -30.6181, -31.0954 )
+polygon = PoolVector2Array( 16.1664, 0.00598335, -15.7034, 15.746, -7.94491, -0.111887, -15.7957, -15.8204 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
 rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
