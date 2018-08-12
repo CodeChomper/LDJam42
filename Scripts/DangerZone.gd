@@ -29,8 +29,7 @@ func _on_Area2D_body_exited(body):
 
 func _on_Timer_timeout():
 	if blocks_in_danger >= 7:
-		# Restart game.
-		print("restart")
+		get_tree().change_scene("res://Scenes/Menu.tscn")
 	else:
 		$Timer.stop()
 

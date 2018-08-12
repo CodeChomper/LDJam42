@@ -43,6 +43,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Ship" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 260.467, 72.1264 )
+position = Vector2( 508.583, 613.471 )
+rotation = -1.57234
 
 
