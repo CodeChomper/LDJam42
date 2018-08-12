@@ -15,14 +15,12 @@ func _process(delta):
 
 
 func _on_Bullet_area_entered(area):
-	print('Hit something!')
 	self.queue_free()
 	pass # replace with function body
 
 
 func _on_Bullet_body_entered(body):
 	if body.has_method("ouch"):
-		print('hit block')
 		body.ouch(10)
 	self.queue_free()
 	pass # replace with function body

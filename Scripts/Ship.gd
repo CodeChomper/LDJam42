@@ -32,6 +32,7 @@ func _physics_process(delta):
 		var b = bullet.instance()
 		b.velocity = Vector2(cos(self.rotation),sin(self.rotation))
 		b.position = self.position
+		b.z_index = -2
 		get_parent().add_child(b)
 		$ShotCoolDown.start()
 	

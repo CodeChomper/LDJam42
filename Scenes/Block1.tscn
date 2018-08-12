@@ -9,11 +9,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 47.8961, 48 )
 
-[node name="Block1" type="RigidBody2D"]
+[node name="Block1" type="RigidBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 3
+collision_layer = 3
+collision_mask = 7
 mode = 0
 mass = 1.0
 friction = 1.0
