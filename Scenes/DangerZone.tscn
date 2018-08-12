@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/DangerZone.gd" type="Script" id=1]
 [ext_resource path="res://imgs/red.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MyFont40.tres" type="DynamicFont" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,26 +47,28 @@ scale = Vector2( 257.275, 60.4207 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Label" type="Label" parent="." index="3"]
+[node name="WarningLabel" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 84.0
-margin_top = 12.0
-margin_right = 189.0
-margin_bottom = 34.0
+margin_left = 276.0
+margin_top = -8.0
+margin_right = 766.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Blocks in danger"
+custom_fonts/font = ExtResource( 3 )
+text = "WARNING!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

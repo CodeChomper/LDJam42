@@ -13,6 +13,7 @@ func _process(delta):
 		self.queue_free()
 	if health <= 0 and alive:
 		alive = false
+		Game.add_score(10)
 		$AudioStreamPlayer.play()
 		self.hide()
 		self.remove_and_skip()

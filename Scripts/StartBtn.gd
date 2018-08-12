@@ -25,3 +25,8 @@ func _on_Areay2D_area_entered(area):
 func _on_Areay2D_body_entered(body):
 	health -= 10
 	pass # replace with function body
+
+
+func _on_Button_pressed():
+	health = 0
+	pass # replace with function body
