@@ -24,15 +24,17 @@ func _ready():
 
 
 func _on_SpawnTimer_timeout():
-	print('spawning block')
-	time_between_blocks -= 0.02
+	if time_between_blocks > 0.75:
+		time_between_blocks -= 0.05
+	
 	$SpawnTimer.wait_time = time_between_blocks
 	$SpawnTimer.start()
 	
 	var block_index = floor(rand_range(0,blocks.size()))
 	
 	var b = blocks[block_index].instance()
-	b.position = Vector2(rand_range(32,880),-60)
+	b.position = Vector2(rand_range(0,700),-60)
+	b.rotation = deg2rad(floor(rand_range(0,4)) * 90)
 	add_child(b)
 	pass # replace with function body
 

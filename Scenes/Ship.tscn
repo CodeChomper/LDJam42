@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://imgs/Ship.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/bounce.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/shot.ogg" type="AudioStream" id=4]
 
 [node name="Ship" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
@@ -22,5 +25,32 @@ rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="ShotCoolDown" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = true
+
+[node name="Bounce" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Shot" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="timeout" from="ShotCoolDown" to="." method="_on_ShotCoolDown_timeout"]
 
 
