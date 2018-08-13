@@ -8,7 +8,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$HighScoreDisplay.text = str(Game.get_high_score())
 	$LineEdit.text = Game.player_name
-	
+	$LineEdit.grab_focus()
 	pass
 
 #func _process(delta):
