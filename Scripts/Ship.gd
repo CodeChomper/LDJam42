@@ -8,6 +8,7 @@ var bullet = load("res://Scenes/Bullet.tscn")
 var can_shoot = true
 
 func _ready():
+	$ThrustAnim.hide()
 	pass
 
 func _physics_process(delta):
@@ -21,10 +22,13 @@ func _physics_process(delta):
 	self.rotate(rot)
 	
 	if Input.is_action_pressed("player_thrust"):
+		$ThrustAnim.show()
 		var tmp = Vector2();
 		tmp.x = cos(self.rotation)
 		tmp.y = sin(self.rotation)
 		velocity += tmp * THRUDT_POWER
+	else:
+		$ThrustAnim.hide()
 	
 	if Input.is_action_pressed("player_shoot") and can_shoot:
 		if !$Shot.playing: $Shot.play()

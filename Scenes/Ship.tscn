@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
-[ext_resource path="res://imgs/Ship.png" type="Texture" id=2]
-[ext_resource path="res://Sounds/bounce.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/shot.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scenes/thrust_anim.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://imgs/Ship.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/bounce.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/shot.ogg" type="AudioStream" id=5]
 
 [node name="Ship" type="KinematicBody2D" index="0"]
 
@@ -14,37 +15,47 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+[node name="ThrustAnim" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( -16.8347, 0.44508 )
+rotation = 1.5708
+frames = ExtResource( 2 )
+animation = "Thrust"
+frame = 4
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( 16.1664, 0.00598335, -15.7034, 15.746, -7.94491, -0.111887, -15.7957, -15.8204 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ShotCoolDown" type="Timer" parent="." index="2"]
+[node name="ShotCoolDown" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 0.05
 one_shot = false
 autostart = true
 
-[node name="Bounce" type="AudioStreamPlayer" parent="." index="3"]
+[node name="Bounce" type="AudioStreamPlayer" parent="." index="4"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Shot" type="AudioStreamPlayer" parent="." index="4"]
+[node name="Shot" type="AudioStreamPlayer" parent="." index="5"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

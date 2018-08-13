@@ -1,140 +1,174 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/StartBtn.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Ship.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Block1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Block2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Block4.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Block5.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Block6.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Block3.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Block7.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/MyFont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Scripts/HTTPRequest.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/MyFont10.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/StartBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Ship.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Block1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Block2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Block4.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Block5.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Block6.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Block3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Block7.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/MyFont.tres" type="DynamicFont" id=14]
+[ext_resource path="res://imgs/controls.png" type="Texture" id=15]
 
 [node name="Menu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 30.2971 ]
+"_edit_horizontal_guides_": [ 30.2971 ],
+"_edit_vertical_guides_": [ 512.81 ]
 }
 
-[node name="StartBtn" parent="." index="0" instance=ExtResource( 2 )]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="0"]
 
-[node name="Walls" type="Node" parent="." index="1"]
+editor/display_folded = true
+download_file = ""
+use_threads = false
+body_size_limit = -1
+max_redirects = 8
+script = ExtResource( 2 )
+database_url = "https://highscore-9a229.firebaseio.com/"
+
+[node name="ScoresLabel" type="Label" parent="HTTPRequest" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 636.0
+margin_top = 66.0
+margin_right = 938.0
+margin_bottom = 615.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="StartBtn" parent="." index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 512.66, 371.475 )
+
+[node name="Walls" type="Node" parent="." index="2"]
 
 editor/display_folded = true
 
-[node name="Wall" parent="Walls" index="0" instance=ExtResource( 3 )]
+[node name="Wall" parent="Walls" index="0" instance=ExtResource( 5 )]
 
 margin_left = -2.0
 margin_top = 844.0
 margin_right = 1061.0
 margin_bottom = 908.0
 
-[node name="Wall4" parent="Walls" index="1" instance=ExtResource( 3 )]
+[node name="Wall4" parent="Walls" index="1" instance=ExtResource( 5 )]
 
 margin_left = -2.0
 margin_top = -70.0
 margin_right = 1061.0
 margin_bottom = -6.0
 
-[node name="Wall2" parent="Walls" index="2" instance=ExtResource( 3 )]
+[node name="Wall2" parent="Walls" index="2" instance=ExtResource( 5 )]
 
 margin_left = -2.0
 margin_right = 62.0
 margin_bottom = 842.0
 
-[node name="Wall3" parent="Walls" index="3" instance=ExtResource( 3 )]
+[node name="Wall3" parent="Walls" index="3" instance=ExtResource( 5 )]
 
 margin_left = 958.0
 margin_top = -36.0
 margin_right = 1022.0
 margin_bottom = 842.0
 
-[node name="Ship" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Ship" parent="." index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 263.477, 383.501 )
 rotation = -1.57275
 
-[node name="Blocks" type="Node" parent="." index="3"]
+[node name="Blocks" type="Node" parent="." index="4"]
 
 editor/display_folded = true
 
-[node name="Block1" parent="Blocks" index="0" instance=ExtResource( 5 )]
+[node name="Block1" parent="Blocks" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 111.485, 793.493 )
 
-[node name="Block2" parent="Blocks" index="1" instance=ExtResource( 6 )]
+[node name="Block2" parent="Blocks" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 133.961, 744.348 )
 rotation = 1.57413
 
-[node name="Block4" parent="Blocks" index="2" instance=ExtResource( 7 )]
+[node name="Block4" parent="Blocks" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 257.301, 817.993 )
 rotation = 1.57413
 
-[node name="Block5" parent="Blocks" index="3" instance=ExtResource( 8 )]
+[node name="Block5" parent="Blocks" index="3" instance=ExtResource( 10 )]
 
 position = Vector2( 884.813, 793.168 )
 rotation = 0.00230015
-scale = Vector2( 1, 1 )
 
-[node name="Block6" parent="Blocks" index="4" instance=ExtResource( 8 )]
+[node name="Block6" parent="Blocks" index="4" instance=ExtResource( 10 )]
 
 position = Vector2( 427.95, 794.689 )
 
-[node name="Block8" parent="Blocks" index="5" instance=ExtResource( 9 )]
+[node name="Block8" parent="Blocks" index="5" instance=ExtResource( 11 )]
 
 position = Vector2( 525.17, 793.714 )
 rotation = 1.56394
-scale = Vector2( 1, 1 )
 
-[node name="Block7" parent="Blocks" index="6" instance=ExtResource( 9 )]
+[node name="Block7" parent="Blocks" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 403.072, 721.883 )
 
-[node name="Block3" parent="Blocks" index="7" instance=ExtResource( 10 )]
+[node name="Block3" parent="Blocks" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 211.092, 722.499 )
 
-[node name="Block10" parent="Blocks" index="8" instance=ExtResource( 11 )]
+[node name="Block10" parent="Blocks" index="8" instance=ExtResource( 13 )]
 
 position = Vector2( 909.407, 720.181 )
 rotation = -0.000281113
-scale = Vector2( 1, 1 )
 
-[node name="Block11" parent="Blocks" index="9" instance=ExtResource( 5 )]
+[node name="Block11" parent="Blocks" index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 306.845, 745.318 )
 rotation = -0.00205044
-scale = Vector2( 1, 1 )
 
-[node name="Block9" parent="Blocks" index="10" instance=ExtResource( 6 )]
+[node name="Block9" parent="Blocks" index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 810.828, 773.754 )
 rotation = -0.00205044
-scale = Vector2( 1, 1 )
 
-[node name="Block12" parent="Blocks" index="11" instance=ExtResource( 7 )]
+[node name="Block12" parent="Blocks" index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 663.175, 767.744 )
 rotation = 1.56902
-scale = Vector2( 1, 1 )
 
-[node name="Block14" parent="Blocks" index="12" instance=ExtResource( 6 )]
+[node name="Block14" parent="Blocks" index="12" instance=ExtResource( 8 )]
 
 position = Vector2( 258.551, 401.888 )
 rotation = -1.56172
 
-[node name="Block13" parent="Blocks" index="13" instance=ExtResource( 7 )]
+[node name="Block13" parent="Blocks" index="13" instance=ExtResource( 9 )]
 
 position = Vector2( 208.896, 549.841 )
 rotation = 3.13974
 
-[node name="HighScore" type="Label" parent="." index="4"]
+[node name="HighScore" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -150,14 +184,14 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 14 )
 text = "High Score:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="CurrentScore" type="Label" parent="." index="5"]
+[node name="CurrentScore" type="Label" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -173,15 +207,16 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 14 )
 text = "Score:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="CheckButton" type="CheckButton" parent="." index="6"]
+[node name="CheckButton" type="CheckButton" parent="." index="7"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -222,12 +257,20 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 14 )
 text = "Music:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Sprite" type="Sprite" parent="." index="8"]
+
+position = Vector2( 513.194, 837.516 )
+scale = Vector2( 0.697623, 0.697623 )
+z_index = 1
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Z Index" ]
 
 [connection signal="pressed" from="CheckButton" to="." method="_on_CheckButton_pressed"]
 
