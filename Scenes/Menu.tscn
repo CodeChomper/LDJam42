@@ -17,7 +17,7 @@
 [ext_resource path="res://imgs/controls.png" type="Texture" id=15]
 [ext_resource path="res://imgs/logo.png" type="Texture" id=16]
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -95,7 +95,7 @@ margin_bottom = 842.0
 
 [node name="Ship" parent="." index="3" instance=ExtResource( 6 )]
 
-position = Vector2( 149.446, 380.243 )
+position = Vector2( 186.099, 434 )
 rotation = -1.57275
 
 [node name="Blocks" type="Node" parent="." index="4"]
@@ -136,30 +136,30 @@ position = Vector2( 403.072, 721.883 )
 
 position = Vector2( 211.092, 722.499 )
 
-[node name="Block10" parent="Blocks" index="8" instance=ExtResource( 13 )]
+[node name="Block14" parent="Blocks" index="8" instance=ExtResource( 12 )]
+
+position = Vector2( 328.381, 647.565 )
+rotation = 1.56791
+
+[node name="Block10" parent="Blocks" index="9" instance=ExtResource( 13 )]
 
 position = Vector2( 909.407, 720.181 )
 rotation = -0.000281113
 
-[node name="Block11" parent="Blocks" index="9" instance=ExtResource( 7 )]
+[node name="Block11" parent="Blocks" index="10" instance=ExtResource( 7 )]
 
 position = Vector2( 306.845, 745.318 )
 rotation = -0.00205044
 
-[node name="Block9" parent="Blocks" index="10" instance=ExtResource( 8 )]
+[node name="Block9" parent="Blocks" index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 810.828, 773.754 )
 rotation = -0.00205044
 
-[node name="Block12" parent="Blocks" index="11" instance=ExtResource( 9 )]
+[node name="Block12" parent="Blocks" index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 663.175, 767.744 )
 rotation = 1.56902
-
-[node name="Block14" parent="Blocks" index="12" instance=ExtResource( 8 )]
-
-position = Vector2( 336.11, 647.934 )
-rotation = -1.56172
 
 [node name="Block16" parent="Blocks" index="13" instance=ExtResource( 8 )]
 
